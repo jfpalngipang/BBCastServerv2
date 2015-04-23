@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dynamic Webpage</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="gridstack.min.css">
+        <script type="text/javascript" src="lodash.min.js"></script>
+        <script type="text/javascript" src="gridstack.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script type="text/javascript" src="layout1.js"></script>
+        <link rel="stylesheet" type="text/css" href="slick.css">
+        <link rel="stylesheet" type="text/css" href="slick-theme.css">
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="grid-stack">
+                <div class="grid-stack-item" data-gs-x="2" data-gs-y="8" data-gs-width="8" data-gs-height="3">
+                    <div class="grid-stack-item-content">
+                        <div id="player"></div>                      
+                    </div>
+                </div>
+              
+            <button onclick="addNew()">BUTTON</button>
+            <button onclick="test1()">BUTTON</button>
+            
+        
+        </div>
+        
+                <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#text-carousel').slick({
+                    autoplay:true
+                });
+            });
+         var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    <!-- Code to create iframe after API download -->
+    var loadThis;
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player1', {
+            height: '540',
+            width: '960',
+            videoId: 'M7lc1UVf-VE',
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            },
+            playerVars: {
+                'controls' : 0,
+            }
+        });
+    }
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    }
+    function stopVideo() {
+        player.stopVideo();
+    }
+        </script>
+
+
+
+    </body>
+</html>
